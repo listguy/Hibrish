@@ -7,8 +7,13 @@ function main() {
 }
 
 function hebrewToEnglish(event) {
-  let value = event.target.value;
-  setEnglishInputValue(event.target.value);
+  let str = event.target.value;
+  setEnglishInputValue(convertCharacters(str));
+}
+
+function englishToHebrew(event) {
+  let str = event.target.value;
+  setHebrewInputValue(convertCharacters(str));
 }
 
 function setHebrewInputValue(value) {
@@ -21,8 +26,12 @@ function setEnglishInputValue(value) {
   englishInput.value = value;
 }
 
-function englishToHebrew(event) {
-  let value = event.target.value;
-  setHebrewInputValue(value);
+function convertCharacters(str) {
+  let convertedStr = "";
+  for (let c of str) {
+    let convertedChar = QWERTY_BINDINGS[c];
+    convertedStr += convertedChar ? convertedChar : c;
+  }
+  return convertedStr;
 }
 main();
