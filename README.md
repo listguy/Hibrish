@@ -1,2 +1,2 @@
-# Hivrish
-The code for my "Hivrish" chrome Extension 
+# Hibrish
+The code for my "Hibrish" chrome Extension 
