@@ -1,29 +1,17 @@
 function main() {
-  const hebrewInput = document.getElementById("hebrew-input");
-  const englishInput = document.getElementById("english-input");
+  const hebrishInput = document.getElementById("hebrish-input");
 
-  hebrewInput.addEventListener("change", hebrewToEnglish);
-  englishInput.addEventListener("change", englishToHebrew);
+  hebrishInput.addEventListener("change", fixText);
 }
 
-function hebrewToEnglish(event) {
+function fixText(event) {
   let str = event.target.value;
-  setEnglishInputValue(convertCharacters(str));
+  setFixedTextInput(convertCharacters(str));
 }
 
-function englishToHebrew(event) {
-  let str = event.target.value;
-  setHebrewInputValue(convertCharacters(str));
-}
-
-function setHebrewInputValue(value) {
-  const hebrewInput = document.getElementById("hebrew-input");
-  hebrewInput.value = value;
-}
-
-function setEnglishInputValue(value) {
-  const englishInput = document.getElementById("english-input");
-  englishInput.value = value;
+function setFixedTextInput(fixedText) {
+  const fixedInput = document.getElementById("fixed-input");
+  fixedInput.value = fixedText;
 }
 
 function convertCharacters(str) {
