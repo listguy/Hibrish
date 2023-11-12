@@ -14,7 +14,7 @@ function setFixedTextInput(fixedText) {
   fixedInput.value = fixedText;
 }
 
-function convertCharacters(str) {
+export function convertCharacters(str) {
   let convertedStr = "";
   for (let c of str) {
     let convertedChar = QWERTY_BINDINGS[c];

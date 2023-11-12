@@ -58,3 +58,19 @@ const QWERTY_BINDINGS = {
   ת: ",",
   ץ: ".",
 };
+
+chrome.runtime.onMessage.addListener(onReceivedMessage);
+
+function onReceivedMessage(message, sender, sendResponse) {
+  const { hibrishText } = message;
+  navigator.clipboard.writeText(convertCharacters(hibrishText)).then(() => alert("Fixed Hibrish!"));
+}
+
+function convertCharacters(str) {
+  let convertedStr = "";
+  for (let c of str) {
+    let convertedChar = QWERTY_BINDINGS[c];
+    convertedStr += convertedChar ? convertedChar : c;
+  }
+  return convertedStr;
+}
