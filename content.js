@@ -61,9 +61,15 @@ const QWERTY_BINDINGS = {
 
 chrome.runtime.onMessage.addListener(onReceivedMessage);
 
+const hibrishPopup = document.createElement("hibrish-popup");
+document.body.appendChild(hibrishPopup);
+
 function onReceivedMessage(message, sender, sendResponse) {
   const { hibrishText } = message;
-  navigator.clipboard.writeText(convertCharacters(hibrishText)).then(() => alert("Fixed Hibrish!"));
+  navigator.clipboard.writeText(convertCharacters(hibrishText)).then(() => {
+    setPopupPosition(getPopupNewPosition());
+    setTimeout(hidePopup, 1500);
+  });
 }
 
 function convertCharacters(str) {
@@ -73,4 +79,21 @@ function convertCharacters(str) {
     convertedStr += convertedChar ? convertedChar : c;
   }
   return convertedStr;
+}
+
+function setPopupPosition(position) {
+  hibrishPopup.setAttribute("position", JSON.stringify(position));
+}
+
+function hidePopup() {
+  setPopupPosition({ display: "none" });
+}
+
+function getPopupNewPosition() {
+  const selectionBounds = window.getSelection().getRangeAt(0).getBoundingClientRect();
+  return {
+    left: selectionBounds.left + selectionBounds.width / 2,
+    top: selectionBounds.top - 5,
+    display: "flex",
+  };
 }

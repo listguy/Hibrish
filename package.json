@@ -1,0 +1,23 @@
+{
+  "name": "hibrish",
+  "version": "1.0.0",
+  "description": "The code for my \"Hibrish\" chrome Extension",
+  "main": "background.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/listguy/Hibrish.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/listguy/Hibrish/issues"
+  },
+  "homepage": "https://github.com/listguy/Hibrish#readme",
+  "dependencies": {
+    "@webcomponents/custom-elements": "^1.6.0"
+  }
+}

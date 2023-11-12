@@ -11,8 +11,7 @@
   "content_scripts": [
     {
       "matches": ["<all_urls>"],
-      "js": ["content.js"],
-      "type": "module"
+      "js": ["node_modules/@webcomponents/custom-elements/custom-elements.min.js", "content.js", "hibrish-popup.js"]
     }
   ],
   "background": {
