@@ -8,14 +8,6 @@
     "default_popup": "index.html",
     "default_title": "Hibrish"
   },
-  "commands": {
-    "hibrish": {
-      "suggested_key": {
-        "default": "Alt+T"
-      },
-      "description": "Fix Gibberish text"
-    }
-  },
   "content_scripts": [
     {
       "matches": ["<all_urls>"],

@@ -1,7 +1,3 @@
-chrome.commands.onCommand.addListener(() => {
-  console.log(`Hiberish!`);
-});
-
 chrome.runtime.onInstalled.addListener(function () {
   chrome.contextMenus.create({
     id: "hibrishContextMenuOption",
@@ -10,11 +6,13 @@ chrome.runtime.onInstalled.addListener(function () {
   });
 });
 
-chrome.contextMenus.onClicked.addListener(function (info, tab) {
+chrome.contextMenus.onClicked.addListener(sendMessage);
+
+function sendMessage(info, tab) {
   if (info.menuItemId === "hibrishContextMenuOption") {
     const msg = {
       hibrishText: info.selectionText,
     };
     chrome.tabs.sendMessage(tab.id, msg);
   }
-});
+}
