@@ -1,21 +1,22 @@
 const template = `
-    <span id="hibrish-popup">
-    Hibrished!
-    </span>
+  <div id="hibrish-popup" dir="rtl">
+  <h3>בוצע!</h3>
+  <p>הטקסט הומר והועתק אל ה clipboard</p>
+  </div>
 `;
 
-const styled = ({ display = "none", left = 0, top = 0 }) => `
+const styled = ({ display = "none", right = 0, top = 0 }) => `
   #hibrish-popup {
     align-items: center;
-    background-color: black;
+    background-color: rgba(32,32,32,0.9);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
     color: white;
-    border-radius: 5px;
+    border-radius: 8px;
     display: ${display};
-    justify-content: center;
-    left: ${left - 20}px;
-    padding: 2px 3px;
+    right: ${right}px;
+    padding: 0px 12px;
     position: fixed;
-    top: ${top - 30}px;
+    top: ${top}px;
     z-index: 9999;
   }
 `;

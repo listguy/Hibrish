@@ -67,7 +67,7 @@ document.body.appendChild(hibrishPopup);
 function onReceivedMessage(message, sender, sendResponse) {
   const { hibrishText } = message;
   navigator.clipboard.writeText(convertCharacters(hibrishText)).then(() => {
-    setPopupPosition(getPopupNewPosition());
+    showPopup();
     setTimeout(hidePopup, 1500);
   });
 }
@@ -89,11 +89,6 @@ function hidePopup() {
   setPopupPosition({ display: "none" });
 }
 
-function getPopupNewPosition() {
-  const selectionBounds = window.getSelection().getRangeAt(0).getBoundingClientRect();
-  return {
-    left: selectionBounds.left + selectionBounds.width / 2,
-    top: selectionBounds.top - 5,
-    display: "flex",
-  };
+function showPopup() {
+  setPopupPosition({ right: 0, top: 0, display: "box" });
 }
